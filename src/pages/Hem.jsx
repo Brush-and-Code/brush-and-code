@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import sanityClient from '../client';
 
-import { HeroVideo, Cases } from "../components";
+import { HeroVideo, Cases, ImageSliderText } from "../components";
 
 function Hem() {
   // Load the right component, based on the _type from Sanity
   const Components = {
     herovideo: HeroVideo,
     casessection: Cases,
+    imageslidertext: ImageSliderText,
   }
   const [pageBuilder, setPageBuilder] = useState(null);
 

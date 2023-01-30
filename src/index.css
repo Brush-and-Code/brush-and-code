@@ -7,3 +7,7 @@
 body {
     background-color: #22252d;
 }
+
+.navigation-header.active {
+    background-color: #22252d;
+}

@@ -5,6 +5,7 @@ import sanityClient from '../client';
 
 function Header() {
   const [nav, setNav] = useState(null);
+  const [headerStatus, setHeader] = useState('regular');
 
   useEffect (() => {
     sanityClient.fetch(
@@ -19,13 +20,28 @@ function Header() {
   }, []);
 
 
+
+  const changeHeader = () => {
+    if (window.scrollY > 100) {
+      setHeader('active')
+    }
+    else {
+      setHeader('regular')
+    }
+  }
+
+  window.addEventListener("scroll", changeHeader)
+
+
   if (nav) {
     return (
       <>
-        <section className='w-full fixed top-0 z-10 py-7'>
+        <section className={'w-full fixed top-0 z-20 py-7 navigation-header '+headerStatus}>
           <div className='w-[90%] flex m-auto'>
             <div className='w-[25%] flex items-center content-center'>
-              <img className='w-[240px]' src={logotype} alt="Brush & Code" />
+              <Link to="/">
+                  <img className='w-[240px]' src={logotype} alt="Brush & Code" />
+              </Link>
             </div>
             <div className='w-[25%] flex items-center content-center justify-between'>
               <ul className='list-none flex p-0 m-0 items-center content-center'>
